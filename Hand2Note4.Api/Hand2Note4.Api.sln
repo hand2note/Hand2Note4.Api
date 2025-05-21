@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hand2Note4.Api", "Hand2Note4.Api\Hand2Note4.Api.csproj", "{71F54C44-9C7B-4A13-B15B-02CC9920615F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySerializer", "BinarySerializer\src\BinarySerializer\BinarySerializer.csproj", "{AECC7E17-5478-4D61-B9D8-7D35613A9BCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryPools", "BinarySerializer\MemoryPools\src\MemoryPools.csproj", "{1B72793C-F0A3-4AC8-AF20-CB387F8B579B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hand2Note4.Api.Tests", "Hand2Note4.Api.Tests\Hand2Note4.Api.Tests.csproj", "{89E66B1D-8AF5-4B06-ABA9-0F217084A0A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71F54C44-9C7B-4A13-B15B-02CC9920615F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F54C44-9C7B-4A13-B15B-02CC9920615F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F54C44-9C7B-4A13-B15B-02CC9920615F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F54C44-9C7B-4A13-B15B-02CC9920615F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AECC7E17-5478-4D61-B9D8-7D35613A9BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECC7E17-5478-4D61-B9D8-7D35613A9BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECC7E17-5478-4D61-B9D8-7D35613A9BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECC7E17-5478-4D61-B9D8-7D35613A9BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B72793C-F0A3-4AC8-AF20-CB387F8B579B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B72793C-F0A3-4AC8-AF20-CB387F8B579B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B72793C-F0A3-4AC8-AF20-CB387F8B579B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B72793C-F0A3-4AC8-AF20-CB387F8B579B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E66B1D-8AF5-4B06-ABA9-0F217084A0A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E66B1D-8AF5-4B06-ABA9-0F217084A0A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E66B1D-8AF5-4B06-ABA9-0F217084A0A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E66B1D-8AF5-4B06-ABA9-0F217084A0A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

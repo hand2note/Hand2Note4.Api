@@ -1,0 +1,3 @@
+[submodule "Hand2Note4.Api/BinarySerializer"]
+	path = Hand2Note4.Api/BinarySerializer
+	url = https://github.com/hand2note/BinarySerializer

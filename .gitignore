@@ -1,0 +1,61 @@
+tests/TestData
+output/
+publish/
+package/
+projection/
+*.pfx
+#installer input folder
+hand2noteroot/
+*.cab
+*.exe
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+packages/
+
+# Visual Studio Code
+.vscode
+
+# Rider
+.idea
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
+
+
+out.txt
+
+error.txt
+
+# XCode
+xcuserdata/
+*xcodeproj*
+main.m
+*.dylib
+
+#Resorces for tests
+MauiTestResources/
