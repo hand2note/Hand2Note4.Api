@@ -5,8 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 using System.Text.Json;
-using BinarySerializer;
-using MemoryPools;
 
 namespace Hand2Note4.Api;
 

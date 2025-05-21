@@ -62,4 +62,17 @@ Numbers {
     public static bool 
     IsMinValue(this double value) => double.IsNegativeInfinity(value) || value == double.MinValue;
     
+    public static bool
+    IsPowerOfTwo(this int x) => x != 0 && (x & x - 1) == 0;
+    
+    public static int
+    VerifyIsPowerOfTwo(this int value, string? message = null) {
+        if (!value.IsPowerOfTwo())
+            throw new InvalidOperationException(message ?? $"Expecting power of two but was {value}");
+        return value;
+    }
+    
+    public static int
+    VerifyNotNegative(this int value, string? name = null) =>
+    value >= 0 ? value : throw new InvalidOperationException($"Value {name} can't be negative but was {value}");
 }

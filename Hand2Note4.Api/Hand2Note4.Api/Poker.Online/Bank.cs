@@ -20,15 +20,13 @@ Pot: IHasPotNumber {
 
     public static Pot
     Create(double potSize, int potNumber, SeatNumberFlags pretenders, SeatMap<double> investors) {
-        var result = ObjectPool<Pot>.ThreadShared.RentObject();
+        var result = new Pot();
         result.PotSize = potSize.VerifyArgumentNotNegative(nameof(potSize));
         result.PotNumber = potNumber;
         result.Pretenders = pretenders;
         result.Investors = investors;
         return result;
     }
-
-    public static Pot[] CreateArray(int size) => ArrayPool<Pot>.ThreadShared.GetArray(size);
 
     public Pot (){}
 
