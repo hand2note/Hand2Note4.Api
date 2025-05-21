@@ -7,15 +7,18 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>Hand2Note4Api</PackageId>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <Version>1.0.0</Version>
         <Company>Hand2Note</Company>
         <Description>Contains Hand2Note API for third party tools integration.</Description>
         <PackageTags>poker;hud;hand2note;statistics</PackageTags>
         <RepositoryUrl>https://github.com/hand2note/Hand2Note4.Api</RepositoryUrl>
         <Title>Hand2Note4.Api</Title>
-        <Authors />
+        <Authors>hand2note.com</Authors>
     </PropertyGroup>
-
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
     <ItemGroup>
         <Using Include="System" />
         <Using Include="System.IO" />
