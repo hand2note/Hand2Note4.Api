@@ -8,7 +8,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>Hand2Note4Api</PackageId>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Company>Hand2Note</Company>
         <Description>Contains Hand2Note API for third party tools integration.</Description>
         <PackageTags>poker;hud;hand2note;statistics</PackageTags>
