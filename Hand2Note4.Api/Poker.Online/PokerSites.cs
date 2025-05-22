@@ -1,6 +1,6 @@
 namespace Hand2Note4.Api;
 
-public enum Rooms {
+public enum PokerSites {
     PokerStars = 1,
     Pacific = 2,
     IPoker = 3,
@@ -106,8 +106,8 @@ public enum Rooms {
 public static class
 RoomsFunctions {
     public static bool 
-    IsStandardBlindsInShortDeck(this Rooms room) {
-        if (room is Rooms.IPoker or Rooms.Vbet)
+    IsStandardBlindsInShortDeck(this PokerSites pokerSite) {
+        if (pokerSite is PokerSites.IPoker or PokerSites.Vbet)
             return true;
 
         return false;

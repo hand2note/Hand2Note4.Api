@@ -3,7 +3,7 @@
 [BinarySerializable]
 public sealed record 
 Tournament {
-    [Tag(1)] public Rooms Room {get;}
+    [Tag(1)] public PokerSites PokerSite {get;}
     [Tag(2)] public long TournamentId {get; }
     //In Freerolls the  BuyInCurrency can be None if it's unknow. However, 
     //if user wons the freeroll then we can know the currency from the hand history.
@@ -18,8 +18,8 @@ Tournament {
     [Tag(8)] public bool? IsMtt {get;}
     [Tag(9)] public TournamentSpeedTypes SpeedType {get;}
     [Tag(10)] public TournamentTypes Type { get;}
-    public Tournament(Rooms room, long tournamentId, double buyInWithRake, double rake,  Currencies buyInCurrency, string? uniqueTournamentName, double knockoutBounty = 0, TournamentTypes type = TournamentTypes.Default, bool? isMtt = null, TournamentSpeedTypes speedType = TournamentSpeedTypes.Normal) {
-        Room = room;
+    public Tournament(PokerSites pokerSite, long tournamentId, double buyInWithRake, double rake,  Currencies buyInCurrency, string? uniqueTournamentName, double knockoutBounty = 0, TournamentTypes type = TournamentTypes.Default, bool? isMtt = null, TournamentSpeedTypes speedType = TournamentSpeedTypes.Normal) {
+        PokerSite = pokerSite;
         BuyInWithRake = buyInWithRake.VerifyArgumentNotNegative(nameof(buyInWithRake));
         Rake = rake.VerifyArgumentNotNegative(nameof(rake));
         KnockoutBounty = knockoutBounty.VerifyArgumentNotNegative(nameof(knockoutBounty));

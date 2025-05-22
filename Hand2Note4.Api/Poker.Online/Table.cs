@@ -7,7 +7,7 @@
 public class 
 Table {
     public const int MaxTableSize = 10;
-    [Tag(1)] public Rooms Room {get; private set; }
+    [Tag(1)] public PokerSites PokerSite {get; private set; }
     [Tag(12)] public int? ClubId {get;private set; }
     [Tag(2)] public string? Name {get;private set; }
     [Tag(3)] public int TableSize {get;private set; }
@@ -21,9 +21,9 @@ Table {
     [Tag(8)] public int TournamentTableNumber {get;private set; }
     [Tag(9)] public bool IsAnonymousTable {get; private set;}
     [Tag(10)] public string? HomeGameHost {get; private set;}
-    public Table(Rooms room, int tableSize, PokerGameType gameType, Stakes stakes, Currencies currency, Tournament? tournament = null, string? name = null, int? clubId = null, bool isAnonymousTable = false, int tournamentTableNumber = 0, string? homeGameHost = null) =>
+    public Table(PokerSites pokerSite, int tableSize, PokerGameType gameType, Stakes stakes, Currencies currency, Tournament? tournament = null, string? name = null, int? clubId = null, bool isAnonymousTable = false, int tournamentTableNumber = 0, string? homeGameHost = null) =>
         Fill(
-            room: room, 
+            pokerSite: pokerSite, 
             tableSize: tableSize, 
             gameType: gameType, 
             stakes: stakes, 
@@ -36,7 +36,7 @@ Table {
             homeGameHost: homeGameHost);
 
     public void 
-    Fill(Rooms room, int tableSize, PokerGameType gameType, Stakes stakes, Currencies currency, Tournament? tournament = null, string? name = null, int? clubId = null, bool isAnonymousTable = false, int tournamentTableNumber = 0, string? homeGameHost = null) {
+    Fill(PokerSites pokerSite, int tableSize, PokerGameType gameType, Stakes stakes, Currencies currency, Tournament? tournament = null, string? name = null, int? clubId = null, bool isAnonymousTable = false, int tournamentTableNumber = 0, string? homeGameHost = null) {
         this.Name = name;
         this.TableSize = tableSize;
         this.GameType = gameType;
@@ -44,11 +44,11 @@ Table {
         this.Currency = currency;
         this.HomeGameHost = homeGameHost??string.Empty;
         this.TournamentTableNumber = tournamentTableNumber;
-        this.Room = room;
+        this.PokerSite = pokerSite;
         this.ClubId = clubId;
         this.Tournament = tournament;
         this.IsAnonymousTable = isAnonymousTable;
-        this.MainBlindType =  GameType.PokerGame.IsShortDeckFamily() && !room.IsStandardBlindsInShortDeck() ? RegularBlindTypes.ButtonBlind : RegularBlindTypes.BigBlind;
+        this.MainBlindType =  GameType.PokerGame.IsShortDeckFamily() && !pokerSite.IsStandardBlindsInShortDeck() ? RegularBlindTypes.ButtonBlind : RegularBlindTypes.BigBlind;
         if (gameType.IsTournament && tournament == null)
             throw new ArgumentException("Tournament can't be null for a tournament hand", nameof(tournament));
         if (gameType.IsCash && tournament != null)

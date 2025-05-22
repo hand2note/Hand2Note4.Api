@@ -1,5 +1,3 @@
-using System.Collections.Immutable;
-
 namespace Hand2Note4.Api;
 
 [TypeTag(1, typeof(JustPlayersMessage))]
@@ -84,6 +82,9 @@ DealMessage : DynamicMessage {
     [Tag(1)] public long GameNumber {get;}
     [Tag(2)] public int WindowId {get;}
     [Tag(3)] public IBoard Board {get;}
+    /// <summary>
+    /// Contains rake by each pot
+    /// </summary>
     [Tag(4)] public BankRake? BankRake { get; }
     public DealMessage(long gameNumber, int windowId, IBoard board, BankRake? bankRake) {
         GameNumber = gameNumber;
@@ -108,7 +109,7 @@ HandStartMessagePlayer:IHasSeatNumber, IHasUsername {
     [Tag(8)] public DeadPostedBlind PostedDeadBlind {get;}
     [Tag(9)] public bool IsDealer {get;}
     /// <summary>
-    /// An alternative name of the player in the room. For example, a nickname in chinese mobile rooms.
+    /// An alternative name of the player. For example, a nickname in chinese mobile poker site.
     /// Null in case the player may have a pseudonym but is is unknown.
     /// </summary>
     [Tag(10)] public IPseudonym? Pseudonym { get; }
@@ -132,11 +133,11 @@ HandStartMessagePlayer:IHasSeatNumber, IHasUsername {
 public class 
 TableOpenedMessage: DynamicMessage {
     [Tag(1)] public int WindowId {get;}
-    [Tag(2)] public Rooms Room {get; }
+    [Tag(2)] public PokerSites PokerSite {get; }
     [Tag(3)] public Table? Table {get;}
-    public TableOpenedMessage(int windowId, Rooms room, Table? table) {
+    public TableOpenedMessage(int windowId, PokerSites pokerSite, Table? table) {
         WindowId = windowId;
-        Room = room;
+        PokerSite = pokerSite;
         Table = table;
     }
 }
@@ -160,12 +161,15 @@ TableClosedMessage : DynamicMessage {
 [BinarySerializable]
 public class 
 HandHistoryMessage : DynamicMessage {
-    [Tag(1)] public Rooms Room { get; }
+    [Tag(1)] public PokerSites PokerSite { get; }
     [Tag(2)] public long GameNumber { get; }
+    /// <summary>
+    /// Use 1 by default
+    /// </summary>
     [Tag(3)] public int Format {get; }
     [Tag(4)] public string HandHistoryBase64 { get; }
-    public HandHistoryMessage(Rooms room, long gameNumber, int format, string handHistoryBase64) {
-        Room = room;
+    public HandHistoryMessage(PokerSites pokerSite, long gameNumber, int format, string handHistoryBase64) {
+        PokerSite = pokerSite;
         GameNumber = gameNumber;
         Format = format;
         HandHistoryBase64 = handHistoryBase64;
@@ -180,10 +184,10 @@ public class
 TableErrorDynamicMessage : DynamicMessage {
     [Tag(1)]public int WindowId {get;}
     [Tag(2)]public string Message {get;}
-    [Tag(3)]public Rooms Room { get; }
-    public TableErrorDynamicMessage(int windowId, string message, Rooms room) {
+    [Tag(3)]public PokerSites PokerSite { get; }
+    public TableErrorDynamicMessage(int windowId, string message, PokerSites pokerSite) {
         WindowId = windowId;
         Message = message;
-        Room = room;
+        PokerSite = pokerSite;
     }
 }

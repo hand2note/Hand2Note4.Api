@@ -48,7 +48,7 @@ public static class ApiTests {
             gameNumber: 1,
             userUsername: null,
             table: new Table(
-                room: Rooms.PokerStars,
+                pokerSite: PokerSites.PokerStars,
                 gameType: new PokerGameType(
                     pokerGame: PokerGames.TexasHoldem,
                     betLimits: BetLimits.NoLimit, 
