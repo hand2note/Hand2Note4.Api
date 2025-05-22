@@ -8,18 +8,18 @@ Currently available on C#.
 
 **Installation**
 
+> dotnet add package Hand2Note4Api
 
 ## HUD integration
 
 Use it if you need to show dynamic or static HUD in any window or you need to send a hand history to Hand2Note, process it and save it into the database.
 
-This API is intended for third party converters on poker rooms unsupported by Hand2Note itself. This API should **NOT** be used to violate poker rooms' software restrictions especially on **PokerStars** and measures to maintain the complience will be taken by us.
+This API is intended for third party converters on poker sites unsupported by Hand2Note itself. This API should **NOT** be used to violate poker sites' software restrictions especially on **PokerStars** and measures to maintain the compliance will be taken by us.
 
 General use cases:
-```C#
-using Hand2Note.Api;
 
-//Notifies Hand2Note that the new hand has been started
+Notifies Hand2Note that the new hand has been started
+```C#
 Hand2Note.Send(new HandStartMessage(
     windowId: 1,
     gameNumber: 1,
@@ -36,8 +36,10 @@ Hand2Note.Send(new HandStartMessage(
     players: ... //Fill ImmutableList<HandStartMessagePlayer>,
     cashDrop: 0)
 );
+```
 
-//Notifies Hand2Note that the street has been changed
+Notifies  Hand2Note that the street has been changed
+```C#
 Hand2Note.Send( 
     new DealMessage(
       windowId: 1,
@@ -45,8 +47,10 @@ Hand2Note.Send(
       board: new Board(cards: "AcAhAd".ParseCards()),
       bankRake: BankRake.Create(potRakes: PotMap<double>.Empty.With(potNumber: 1, value: 0.1)));
 );
+```
 
-//Notifies Hand2Note that the action has been done
+Notifies  Hand2Note that the action has been done
+```C#
 Hand2Note.Send(new ActionMessage(
     windowId: 1,
     seatNumber: 1,
@@ -54,20 +58,28 @@ Hand2Note.Send(new ActionMessage(
     actionType: ActionTypes.Raise,
     amount: 2)
 );
+```
 
-//Sends a "static" hand history to Hand2Note to update players' statistics.
-//Please, note that the hand history should contain information about the original poker room it was played on. 
-//Hand2Note uses a prefix in the table name to detect the original room.
-//Use Hand2Note.GetRoomDefiningTableName method to generate a table name with a correspondent room prefix.
-Hand2Note.Send(new HandHistoryMessage(){...});
+Sends a "static" hand history to Hand2Note to update players' statistics. 
+Set format property to 1, hand history should be base64 encoded.
+```C#
+Hand2Note.Send(new HandHistoryMessage(
+    room: Rooms.GGNetwork,
+    gameNumber: 79556501, 
+    format:1,
+    handHistoryBase64: Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(handHistoryText)))
+);
+```
 
-
-//Checks if Hand2Note is running
+Checks if Hand2Note is running
+```C#
 if (Hand2Note.IsHand2NoteRunning()){
 ...
 }
+```
 
-//Use Activity monitor to know when Hand2Note client was started or closed
+Use Activity monitor to know when Hand2Note client was started or closed
+```C#
 var activityMonitor = new ActivityMonitor();
 activityMonitor.Hand2NoteStarted += Hand2NoteStartedHandler;
 activityMonitor.Hand2NoteClosed += Hand2NoteClosedHandler;
